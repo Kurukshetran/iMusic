@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+		<title>iMusic</title>
+		<meta name="msapplication-tap-highlight" content="no" />
+        <!-- CSS Stylesheets -->
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/grid-menu-style.css" />
+
+		<!-- jQuery -->
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/jquery.mobile-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/scripts.js"></script>
+		<script>
+         $(document).one('deviceready', Application.initApplication);
+      </script>
+    </head>
+    <body>
+        <div data-role="page" id="grid-menu" data-theme="b"> 
+			<!-- Page header -->
+			<div data-role="header" data-position="fixed" >
+				<h1>iMusic</h1>
+			</div>
+			<!-- Page header --> 
+
+			<!-- Page body -->
+			<div role="main" class="ui-content">
+			<div class="ui-grid-a"> <!-- menu-container --> 
+
+			<!-- FIRST ROW --> 
+			<!-- 1st elem -->
+			<div class="ui-block-a">
+			<div class="ui-bar ui-bar-a">
+			<div class="menu-elem"> <a href="#">
+			<div class="menu-img"> <img src="img/1.png"> </div>
+			<div class="menu-text"> Albums </div>
+			</a> </div>
+			</div>
+			</div>
+			<!-- 2nd elem -->
+			<div class="ui-block-b">
+			<div class="ui-bar ui-bar-a">
+			<div class="menu-elem"> <a href="#">
+			<div class="menu-img"> <img src="img/2.png"> </div>
+			<div class="menu-text"> Play </div>
+			</a> </div>
+			</div>
+			</div>
+
+			<!-- SECOND ROW --> 
+			<!-- 1st elem -->
+			<div class="ui-block-a">
+			<div class="ui-bar ui-bar-a">
+			<div class="menu-elem"> <a href="Scan.html">
+			<div class="menu-img"> <img src="img/3.png"> </div>
+			<div class="menu-text"> Scan </div>
+			</a> </div>
+			</div>
+			</div>
+			<!-- 2nd elem -->
+			<div class="ui-block-b">
+			<div class="ui-bar ui-bar-a">
+			<div class="menu-elem"> <a href="#">
+			<div class="menu-img"> <img src="img/4.png"> </div>
+			<div class="menu-text"> Search </div>
+			</a> </div>
+			</div>
+			</div>
+
+			<!-- THIRD ROW --> 
+			<!-- 1st elem -->
+			<div class="ui-block-a">
+			<div class="ui-bar ui-bar-a">
+			<div class="menu-elem"> <a href="#">
+			<div class="menu-img"> <img src="img/5.png"> </div>
+			<div class="menu-text"> Download </div>
+			</a> </div>
+			</div>
+			</div>
+			<!-- 2nd elem -->
+			<div class="ui-block-b">
+			<div class="ui-bar ui-bar-a">
+			<div class="menu-elem"> <a href="#">
+			<div class="menu-img"> <img src="img/6.png"> </div>
+			<div class="menu-text"> Settings </div>
+			</a> </div>
+			</div>
+			</div>
+			</div>
+			<!-- menu container --> 
+			</div>
+			<!-- .ui-content --> 
+			<!-- Page body --> 
+		</div>
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+Node version: v0.10.32
+
+Cordova version: 0.21.7
+
+Config.xml file: 
+
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.app.imusic" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>iMusic</name>
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+</widget>
+
+
+Plugins: 
+
+org.apache.cordova.file,org.apache.cordova.media
+
+Android platform:
+
+Available Android targets:
+----------
+id: 1 or "android-19"
+     Name: Android 4.4.2
+     Type: Platform
+     API level: 19
+     Revision: 3
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in
+ Tag/ABIs : default/armeabi-v7a
+----------
+id: 2 or "android-20"
+     Name: Android 4.4W
+     Type: Platform
+     API level: 20
+     Revision: 1
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in
+ Tag/ABIs : no ABIs.
+
