@@ -11,12 +11,16 @@ var Application =
 {
 	initApplication: function() 
 	{
+		console.log("initApplication");
+		Application.initFilesListPage();
+		/*
 		$(document).on('pageinit', '#scan-page',
         function()
         {
 			console.log("initApplication");
 			Application.initFilesListPage();
         });
+		*/
 	},
 	initFilesListPage: function() 
 	{
@@ -111,7 +115,7 @@ var Application =
 	
 		for(var j = 0; j < MusicFileName.length; j++)
 		{
-			$('#directoryList').append('<li><h3>' + MusicFileName[j] + '</h3><p>' + MusicFilePath[j] + '</p><p class="ui-li-aside">Type: <strong>' + objectType + '</strong></p></li>');
+			$('#directoryList').append('<li>' + MusicFileName[j] + '<p>Type: <strong>' + objectType + '</strong></p></li>'); //class="ui-li-aside"
 			
 			console.log(MusicFileName[j]+":"+MusicFilePath[j]);
 		}

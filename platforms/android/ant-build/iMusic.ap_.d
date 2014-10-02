@@ -37,12 +37,14 @@ D:\iMusic\platforms\android\assets\www\img\4.png \
 D:\iMusic\platforms\android\assets\www\img\5.png \
 D:\iMusic\platforms\android\assets\www\img\6.png \
 D:\iMusic\platforms\android\assets\www\img\logo.png \
+D:\iMusic\platforms\android\assets\www\js\CollectMedia.js \
 D:\iMusic\platforms\android\assets\www\js\getfiles.js \
 D:\iMusic\platforms\android\assets\www\js\index.js \
 D:\iMusic\platforms\android\assets\www\js\jquery-1.11.1.min.js \
 D:\iMusic\platforms\android\assets\www\js\jquery.mobile-1.4.4.min.js \
 D:\iMusic\platforms\android\assets\www\js\script.js \
 D:\iMusic\platforms\android\assets\www\js\scripts.js \
+D:\iMusic\platforms\android\assets\www\js\storage.js \
 D:\iMusic\platforms\android\assets\www\plugins\com.app.imusic.plugin \
 D:\iMusic\platforms\android\assets\www\plugins\org.apache.cordova.file \
 D:\iMusic\platforms\android\assets\www\plugins\org.apache.cordova.media \

@@ -26,26 +26,22 @@ public class MyPlugin extends CordovaPlugin
 			   // Here goes our custom code
 				String path = "/sdcard";
 				String getPath = argObject.getString("FilePath");
+				String songName = argObject.getString("SongName");
 				String fullpath = path.concat(getPath);
 				
 				MediaMetadataRetriever metaRetriver = new MediaMetadataRetriever(); 
 				metaRetriver.setDataSource(fullpath);
 				try 
 				{ 
-					String src1 = metaRetriver.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM); 
-					String src2 = metaRetriver.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST); 
-					String src3 = metaRetriver.extractMetadata(MediaMetadataRetriever.METADATA_KEY_GENRE);
+					String ALBUM = metaRetriver.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM); 
+					String ARTIST = metaRetriver.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST); 
+					String GENRE = metaRetriver.extractMetadata(MediaMetadataRetriever.METADATA_KEY_GENRE);
 					
-					r.put("album", src1);
-					r.put("artist", src2);
-					r.put("genre", src3);
-					
-					Log.d("PATH  : ", fullpath);
-					Log.d("ALBUM : ", src1);
-					Log.d("ARTIST: ", src2);
-					Log.d("GENRE : ", src2);
-					
-					String result = src1+","+src2+","+src3;
+					r.put("songname", songName);
+					r.put("fullpath", getPath.toString());
+					r.put("album", ALBUM);
+					r.put("artist", ARTIST);
+					r.put("genre", GENRE);
 					
 					callbackContext.success(r.toString());
 					return true;
