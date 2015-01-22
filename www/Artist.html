@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+        <title>Artist</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css" />
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/jquery.mobile-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/ArtistDisplay.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="artist-page" data-theme="b">
+
+		<div data-role="header" data-position="fixed">
+			<a href="index.html" data-role="button" data-rel="back" data-theme="a">Back</a>
+			<h2>Artist</h2>
+		</div>
+
+		<div data-role="content">
+			<div id="collapsibleset-display" data-role="collapsibleset" data-inset="false" data-theme="a">	
+			</div>
+		</div>
+		
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+			  <ul>
+				<li><a href="Album.html">Albums</a></li>
+				<li><a href="Artist.html" class="ui-btn-active ui-state-persist">Artist</a></li>
+				<li><a href="#">Songs</a></li>
+				<li><a href="#">Playlists</a></li>
+			  </ul>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>

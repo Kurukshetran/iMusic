@@ -19,6 +19,10 @@
                         {
                             "xml": "<feature name=\"MyPlugin\"><param name=\"android-package\" value=\"com.app.imusic.plugin.MyPlugin\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"TextInputDialog\"><param name=\"android-package\" value=\"com.app.imusic.dialog.TextInputDialog\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -54,7 +58,7 @@
         "org.apache.cordova.media": {
             "PACKAGE_NAME": "com.app.imusic"
         },
-        "com.app.imusic.plugin": {
+        "com.app.imusic.dialog": {
             "PACKAGE_NAME": "com.app.imusic"
         }
     },

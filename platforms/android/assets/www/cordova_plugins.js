@@ -161,10 +161,10 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/com.app.imusic.plugin/www/getmetadata.js",
-        "id": "com.app.imusic.plugin.MusicData",
+        "file": "plugins/com.app.imusic.dialog/www/text.js",
+        "id": "com.app.imusic.dialog.TextInputDialog",
         "clobbers": [
-            "window.songPlugin"
+            "window.textInputDialog"
         ]
     }
 ];
@@ -173,7 +173,7 @@ module.exports.metadata =
 {
     "org.apache.cordova.file": "1.3.1",
     "org.apache.cordova.media": "0.2.13",
-    "com.app.imusic.plugin": "0.1.0"
+    "com.app.imusic.dialog": "0.1.0"
 }
 // BOTTOM OF METADATA
 });

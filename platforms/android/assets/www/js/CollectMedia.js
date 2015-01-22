@@ -1,16 +1,12 @@
 var db;
 var data = [];
-var numDirs = 0;
-var numFiles = 0;
-var objectType;
+var objectType = 'MP3';
 var root = null;
-var MusicFileName = new Array();
-var MusicFilePath = new Array();
+//var _ls = window.localStorage;
 var readerTimeout = null, millisecondsBetweenReadSuccess = 1000;
 
-window.addEventListener('load', function()
+window.addEventListener('load',function()
 {
-	// Wait for PhoneGap to load
 	document.addEventListener("deviceready", onDeviceReady, false);
 }, false);
 
@@ -23,9 +19,10 @@ function onDeviceReady()
 function createTable(u)
 {
 	u.executeSql('CREATE TABLE IF NOT EXISTS MEDIAFILES (id unique, filename, filepath, album, artist, genre)');
+	u.executeSql('CREATE TABLE IF NOT EXISTS PLAYLISTS (id unique, listname, listdata)');
 }
 
-function successCB() 
+function successCB()
 {
 	db.transaction(queryDB, errorCB);
 }
@@ -35,7 +32,7 @@ function errorCB(err)
 	console.log("Error processing SQL: "+err.code);
 }
 
-function queryDB(u) 
+function queryDB(u)
 {
 	u.executeSql('SELECT * FROM MEDIAFILES', [], querySuccess, errorCB);
 }
@@ -55,9 +52,7 @@ function querySuccess(u, results)
 	}
 	else
 	{
-		console.log("len: "+len+": No rows");
-		//alert("len: "+len+": No rows");
-		$.mobile.loading('show');
+		$.mobile.loading('show', {theme:"a", text:"Scanning...", textonly:true, textVisible: true});
 		initApp();
 	}
 }
@@ -100,16 +95,12 @@ function readerSuccess(entries)
 				var fileName = entries[i].name;
 				if (!fileName.startsWith(".")) 
 				{
-					numFiles++;
-					MusicFileName.push(entries[i].name)
-					MusicFilePath.push(entries[i].toURI())
 					getMetaData(entries[i].name, entries[i].fullPath);
 				}
 			}
 		}
 		else if (entries[i].isDirectory) 
 		{
-			numDirs++;
 			var dirName = entries[i].name;
 			if (!dirName.startsWith(".")) 
 			{
@@ -135,12 +126,10 @@ function fail(error)
 
 function loadData()
 {
-	console.log("No Of Files: "+numFiles);
 	db.transaction(writeDB, errorCB);
 	db.transaction(readDB, errorCB);
-
+	//_ls.setItem("mfiles", JSON.stringify(data));
 	$.mobile.loading('hide');
-	//alert("No Of Files: "+numFiles);
 }
 
 function writeDB(u)
@@ -169,7 +158,8 @@ function readSuccess(u, results)
 		var getAlbum = results.rows.item(i).album;
 		var getArtist = results.rows.item(i).artist;
 		var getGenre = results.rows.item(i).genre;
-		populateList(getMusicName);
+		
+		populateList(getMusicName);  
 	}
 }
 
@@ -178,7 +168,7 @@ function getMetaData(songname, songpath)
 	var filepath = songpath;
 	var success = function(result) 
 	{
-		data.push(JSON.parse(result));		
+		data.push(JSON.parse(result));
 	};
 	var error = function(message) { alert("Metadata received unsuccessfully: " + message); };
 	songPlugin.createEvent(songname, filepath, success, error);
@@ -186,7 +176,6 @@ function getMetaData(songname, songpath)
 
 function populateList(musicname)
 {
-	//$('#directoryList').append('<li>' + musicname + '</li>');
 	$('#directoryList').append('<li><h6>' + musicname + '</h6><p>Type: <strong>' + objectType + '</strong></p></li>');
-	$('#directoryList').listview("refresh");
+    $('#directoryList').listview("refresh");
 }

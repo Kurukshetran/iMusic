@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <title>Playlist</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css" />
+        <link rel="stylesheet" href="css/jquery.mobile.iscrollview.css"/>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/jquery.mobile-1.4.4.min.js"></script>
+        <script src="js/iscroll.js"></script>
+        <script src="js/jquery.mobile.iscrollview.js"></script>
+		<script type="text/javascript" src="js/Playlists.js"></script>
+    </head>
+    <body>
+	<div data-role="page" id="playlist-page" data-theme="b">
+		<div data-role="header" data-position="fixed" style="text-align:center;">
+			<a href="#" data-role="button" data-rel="back" data-theme="a">Back</a>
+			<h2>Playlists</h2>
+		</div>
+
+		<div data-role="content" data-iscroll>
+			<ul id="playlist-list" data-role="listview">
+			</ul>
+		</div>
+		
+		<div data-role="footer" style="text-align: center;" data-position="fixed">
+			<a href="#" data-role="button" id="create-playlist" data-theme="a">Create Playlist</a>
+		</div>
+	</div>
+        
+    <div id="list-items" data-role="page" data-theme="b">
+        <div data-role="header" data-position="fixed">
+            <a href="#" data-role="button" data-rel="back" data-theme="a">Back</a>
+            <h2></h2>
+        </div>
+        <div data-role="content" data-iscroll>
+        </div>
+    </div>
+	<script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>

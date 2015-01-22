@@ -15,6 +15,10 @@
     <feature name="MyPlugin">
         <param name="android-package" value="com.app.imusic.plugin.MyPlugin" />
     </feature>
+    <feature name="TextInputDialog">
+        <param name="android-package" value="com.app.imusic.dialog.TextInputDialog" />
+    </feature>
+    <preference name="Fullscreen" value="true" />
     <name>iMusic</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

@@ -7,59 +7,71 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.media.MediaMetadataRetriever;
-import android.util.Log;
 
 public class MyPlugin extends CordovaPlugin 
 {
 	public static final String ACTION_DEMO = "GET_METADATA";
+	public static String ALBUM;
+	public static String ARTIST;
+	public static String GENRE;
 	
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException 
 	{
-		try 
+		if (ACTION_DEMO.equals(action)) 
 		{
-			if (ACTION_DEMO.equals(action)) 
+			JSONObject argObject = args.getJSONObject(0);
+			JSONObject r = new JSONObject();
+			
+		   // Here goes our custom code
+			String path = "/sdcard";
+			String getPath = argObject.getString("FilePath");
+			String songName = argObject.getString("SongName");
+			String fullpath = path.concat(getPath);
+			
+			MediaMetadataRetriever metaRetriver = new MediaMetadataRetriever(); 
+			metaRetriver.setDataSource(fullpath);
+			
+			try 
 			{
-				JSONObject argObject = args.getJSONObject(0);
-				JSONObject r = new JSONObject();
-				
-			   // Here goes our custom code
-				String path = "/sdcard";
-				String getPath = argObject.getString("filepath");
-				String fullpath = path.concat(getPath);
-				
-				MediaMetadataRetriever metaRetriver = new MediaMetadataRetriever(); 
-				metaRetriver.setDataSource(fullpath);
-				try 
-				{ 
-					String src1 = metaRetriver.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM); 
-					String src2 = metaRetriver.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST); 
-					String src3 = metaRetriver.extractMetadata(MediaMetadataRetriever.METADATA_KEY_GENRE);
-					
-					r.put("album", src1);
-					r.put("artist", src2);
-					r.put("genre", src3);
-					
-					Log.d("PATH  : ", fullpath);
-					Log.d("ALBUM : ", src1);
-					Log.d("ARTIST: ", src2);
-					Log.d("GENRE : ", src2);
-				}
-				catch (Exception e)
-				{
-					callbackContext.error(e.getMessage());
-					return false;
-				}   
-
-			   callbackContext.success(r);
-			   return true;
+				ALBUM = metaRetriver.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM).toString();
+				ARTIST = metaRetriver.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST).toString(); 
+				GENRE = metaRetriver.extractMetadata(MediaMetadataRetriever.METADATA_KEY_GENRE).toString();
 			}
-			callbackContext.error("No such action defined");
-			return false;
-		} 
-		catch(Exception e) 
+			catch (Exception e)
+			{
+				ALBUM = "unknown-album";
+				ARTIST = "unknown-artist";
+				GENRE = "unknown-genre";
+			}
+			
+			if(ALBUM.equals("") || ALBUM == null)
+			{
+				ALBUM = "unknown-album";
+			}
+			
+			if(ARTIST.equals("") || ARTIST == null)
+			{
+				ARTIST = "unknown-artist";
+			}
+			
+			if(GENRE.equals("") || GENRE == null)
+			{
+				GENRE = "unknown-genre";
+			}
+			
+			r.put("songname", songName);
+			r.put("fullpath", getPath.toString());
+			r.put("album", ALBUM.toString());
+			r.put("artist", ARTIST.toString());
+			r.put("genre", GENRE.toString());
+			
+			callbackContext.success(r.toString());
+			return true;
+		}
+		else
 		{
-			callbackContext.error(e.getMessage());
+			callbackContext.error("No such action defined");
 			return false;
 		}
 	}

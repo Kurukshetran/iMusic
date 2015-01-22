@@ -2,32 +2,30 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
         <title>Scan</title>
-		
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css" />
-
-		<!-- jQuery -->
+        <link rel="stylesheet" href="css/jquery.mobile.iscrollview.css"/>
 		<script src="js/jquery-1.11.1.min.js"></script>
 		<script src="js/jquery.mobile-1.4.4.min.js"></script>
+        <script src="js/iscroll.js"></script>
+        <script src="js/jquery.mobile.iscrollview.js"></script>
 		<script type="text/javascript" src="js/CollectMedia.js"></script>
-		<!--  
-		<script type="text/javascript" src="js/scripts.js"></script>
-		<script>
-         //$(document).one('deviceready', Application.initApplication);
-		</script> -->
     </head>
     <body>
         <div data-role="page" id="scan-page" data-theme="b">
 
 		<div data-role="header" data-position="fixed">
-			 <a href="index.html" data-role="button" data-rel="back" data-theme="a">Back</a>
+			<a href="index.html" data-role="button" data-rel="back" data-theme="a">Back</a>
 			<h2>Scan</h2>
+			<a href="#" data-role="button" data-theme="a">Update</a>
 		</div>
 	
-		<div data-role="content">	
-			<ul id="directoryList" data-role="listview">
-			</ul>		
+		<div data-role="content" data-iscroll>
+            
+                <ul id="directoryList" data-role="listview"> <!-- id="directoryList"  -->
+			    </ul>
+            
 		</div>
 
 	</div>
